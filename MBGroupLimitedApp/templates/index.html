@@ -1,0 +1,457 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<div class="homeimg p-4">
+    <div id="description" class="text-center" style="padding-top:100px;">
+        <span class="homefont row display-2 text-light d-flex justify-content-center align-items-center">
+            B&M Group Limited
+        </span><br>
+
+        <span class="row d-flex justify-content-center align-items-center" style="padding-bottom:30px;">
+        <span id="description" class="col-sm-6  text-light text-center">
+        Is a professional services consultancy firm dedicated to providing comprehensive business solutions
+        that enables individuals, companies and organizations to establish, operate and grow seamlessyin Tanzania and beyond.
+        We especiale in guiding clients through complex regulatory frameworks, legal requirements and business development
+        processes ensuring efficiency, compliance and suistanable growth.
+
+        </span>
+    </span>
+
+    {% if user.is_authenticated %}
+      <a class="btn btn-sm text-light mt-3" id="getservice">
+        <i class="bi bi-briefcase-fill text-light mx-2" style="font-size:1rem;"></i>Add Service
+      </a>
+    {% else %}
+      <a class="btn btn-sm text-light mt-2" id="getservice">
+        <i class="bi bi-briefcase-fill text-light mx-2" style="font-size:1rem;"></i> Get Started
+      </a>
+    {% endif %}
+
+    </div>
+</div> 
+
+
+{% comment %} <!-- services image and descriptions navigation -->
+<div class="homevideo">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline>
+    <source src="{% static 'images/M&B/fading_video.mp4' %}" type="video/mp4">
+    <!--Your browser does not support the video tag. -->
+  </video> 
+
+  <!-- Gradient Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content Over Video -->
+  <div id="description" class="text-center">
+    <span class="homefont mt-5 row display-2 text-light d-flex justify-content-center align-items-center">
+      B&M Group Limited
+    </span><br>
+    <span class="row d-flex justify-content-center align-items-center ">
+      <span id="description" class="col-sm-10 text-light text-center">
+        Is a professional services consultancy firm dedicated to providing comprehensive business solutions
+        that enables individuals, companies and organizations to establish, operate and grow seamlessyin Tanzania and beyond.
+        We especiale in guiding clients through complex regulatory frameworks, legal requirements and business development
+        processes ensuring efficiency, compliance and suistanable growth.
+
+
+        Our multidisciplinary expertise  allows us to bridge the gap between business, regulatory authorities and 
+        markets-making us a trusted parter in business facilitation and cooperate advisory services.  
+      </span>
+    </span>
+    {% if user.is_authenticated %}
+      <a class="btn btn-sm text-light mt-3" id="getservice">
+        <i class="bi bi-briefcase-fill text-light mx-2" style="font-size:1rem;"></i>Add Service
+      </a>
+    {% else %}
+      <a class="btn btn-sm text-light mt-2" id="getservice">
+        <i class="bi bi-briefcase-fill text-light mx-2" style="font-size:1rem;"></i> Get Started
+      </a>
+    {% endif %}
+  </div>
+</div> {% endcomment %}
+
+
+
+<!-- Our vision, mission and core values -->
+ <div class="d-flex justify-content-center mt-2 mb-2">
+<div  class="d-flex flex-nowrap overflow-x-auto  gap-3 p-3 mx-2" style="display: flex;">
+    <div id="getservice" class="top_providers  p-5 text-light flex-shrink-0"  >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     OUR VISION
+     <span class="d-flex justify-content-center align-items-center ">
+         <i class="bi bi-binoculars-fill text-light mx-2" style="font-size:3rem;"></i>
+         <span>
+     </div>
+
+     <div  id="getservice" class="top_providers  p-5 text-light flex-shrink-0" >
+         {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+         OUR MISSION
+         <span class="d-flex justify-content-center align-items-center">
+             <i class="bi bi-graph-up-arrow text-light mx-2" style="font-size:3rem;"></i>
+             <span>
+         </div>
+
+         <div  id="getservice" class="top_providers  p-5 text-light flex-shrink-0"  >
+             {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+             CORE VALUES
+             <span class="d-flex justify-content-center align-items-center">
+                 <i class="bi bi-coin text-light mx-2" style="font-size:3rem;"></i>
+                 <span>
+             </div>
+</div>
+</div>
+
+
+  <div class="animation_division " id="scrollDiv" >
+<!-- start Our services -->
+ <div class=" row mx-3 mb-3" >
+   <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+  <span class="core_service d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-gear-wide-connected mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">BUSINESS SETUP AND REGISTRATION</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+               We help clients establish businesses by conducting official company searches, 
+               registering business names, and offering legal advisory services. Our expertise 
+               covers partnership and NGO registration, ensuring compliance with statutory frameworks.
+                Additionally, we support foreign investors with business visas and work permits, 
+                making the process smooth, lawful, and efficient for both individuals and organizations
+                 entering Tanzania’s business environment.
+
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+
+
+         <!-- start service -->
+        <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+     <div class="core_service d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-sliders mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">LEGAL AND COMPLIANCE ASSISTANCE</b></div>
+    <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+        Our team provides legal and compliance support,
+         including drafting and reviewing contracts, company incorporation,
+          and BRELA registration. We assist with customs clearance to ease import and
+           export operations. Furthermore, we manage certificate processing and renewals,
+            helping clients remain compliant with regulations. These services safeguard businesses,
+             reduce risks, and ensure smooth operations while meeting Tanzania’s legal requirements effectively.
+
+        </div>
+    </div>
+        </div>
+ <!-- finish service -->
+  </div>
+
+  
+
+   <div class="row mx-3" >
+           <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+  <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-bricks mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">LAND & PROPERTY CONSULTING</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+              
+                    We provide expert support in land and property matters, including conducting land 
+                  searches, due diligence, and acquisition consulting. Our services also cover human resource
+                   advisory, tax registration, and VAT certification. Additionally, we assist with financial 
+                   planning and reporting, ensuring businesses and individuals manage property investments 
+                   effectively while complying with legal and tax requirements in Tanzania.
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+        <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+  <span class="core_service  d-flex justify-content-center align-items-center"  >
+    <i class="bi bi-bank2 mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">BUSINESS FACILITATION & MARKETING</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+               Our facilitation services help businesses grow through sales, mergers, and strategic partnerships.
+                We support clients in acquiring building permits, purchase certificates, and import/export licenses. 
+                With added marketing connections and networking opportunities, we enable businesses to expand their
+                 presence, operate lawfully, and connect with relevant markets. These services strengthen operations
+                  and create pathways for sustainable growth.
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+</div>
+
+
+ <div class="row mx-3" >
+         <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+  <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-currency-exchange mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">FINANCE & TAXATION</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+               We offer financial and taxation solutions tailored to business needs, including bookkeeping,
+                accounting support, and preparation of feasibility studies and projection plans. Our services
+                 ensure proper record-keeping, tax compliance, and informed decision-making. With marketing links 
+                 and networking strategies, we not only manage financial processes but also help businesses access
+                  opportunities that support growth and long-term sustainability.
+
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+        <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+  <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-command mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">REGULATORY LICENSING & CERTIFICATION</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+               We assist clients in obtaining essential licenses and certifications, including Environmental 
+               Impact Assessment (EIA), TIC/TiZESA, and chemical importation permits. Our services cover
+                industrial licenses, fire and safety, transportation, and TBS standards. Additionally, we 
+                support with EWURA, OSHA certificates, and trademark registration. These services ensure
+                 businesses operate legally, safely, and in compliance with Tanzania’s regulatory frameworks.
+
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+      </div>
+
+  <div class="row mx-3" >
+        <!-- start service -->
+  <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+  <span class="core_service  d-flex justify-content-center align-items-center px-2"  >
+    <i class="bi bi-x-diamond-fill mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">LAND & PROPERTY CONSULTING & REAL ESTATE</b></span>
+  <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div>
+               We provide full real estate and property consulting solutions, including land acquisition, 
+               searches, and due diligence. Our services cover property valuation, management, and securing 
+               building permits. We also offer real estate brokerage and property sales support. With tailored 
+               investment advisory, we guide clients in maximizing returns while ensuring compliance with legal
+                and regulatory requirements in Tanzania.
+        </div>
+  </div>
+        </div>
+        <!-- finish service -->
+      </div>
+<!-- finish our services-->
+    </div>
+
+
+
+
+      <div class="animation_division " id="scrollDiv2" >
+<!-- start why chose B&M -->
+<div class="p-3 mx-3 bg-light mt-3" style="border-radius:35px; ">
+    <span class="choose d-flex justify-content-center align-items-center mb-2 p-3" >
+    <i class="bi bi-hand-index-fill mx-2" style="font-size:1.5rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">WHY CHOOSE B&M GROUP LIMITED</b></span>
+
+    <div class="row p-2 mx-auto">
+      <div class="choose col-sm px-3 py-3 mx-2 my-1 " >
+        <b> Proven Track Record</b><br>
+          B&M Group Limited has a strong history of successfully delivering projects for 
+          local, regional, and international clients. Our impact-driven solutions are designed 
+          to meet unique client needs while contributing to sustainable growth and development across
+           multiple industries.
+      </div>
+
+            <div class="choose col-sm px-3 py-3 mx-2 my-1 "  >
+         <b>Multi-Sector Expertise</b><br>
+          Our team brings in-depth knowledge and hands-on experience across diverse sectors, 
+          including finance, law, ICT, insurance, banking, and microfinance. This multi-
+           expertise enables us to provide practical, innovative, and well-rounded business solutions 
+           that address complex challenges.
+            </div>
+
+      <div class="choose col-sm px-3 py-3 mx-2 my-1 " >
+         <b>Customized Solutions</b><br>
+        We believe every client is unique. That’s why we provide tailored services designed to
+         align with specific objectives. From business facilitation and compliance to growth strategies, 
+         our customized solutions ensure efficiency, effectiveness, and long-term sustainability.
+      </div>
+
+    </div>
+
+          <div class="row p-2 mx-auto">
+      <div class="choose col-sm px-3 py-3 mx-2 my-1 " >
+         <b>Regulatory Insight</b><br>
+        With a deep understanding of Tanzania’s regulatory frameworks, we guide clients through complex 
+        compliance requirements with ease. Our advisory approach minimizes risks and ensures businesses 
+        operate legally, transparently, and in alignment with both local and international standards.
+      </div>
+
+            <div class="choose col-sm px-3 py-3 mx-2 my-1 " >
+         <b>Commitment to Development</b><br>
+          At B&M, we are committed to contributing to sustainable economic development. By supporting individuals,
+           companies, and organizations, we help create opportunities that strengthen industries, empower communities
+           , and drive long-term progress in Tanzania and beyond.
+      </div>
+    </div>
+
+</div>
+<!-- finish why choose B&M -->
+</div>
+
+
+
+
+  <div class="animation_division " id="scrollDiv3" >
+<!-- our clients -->
+   <div class="d-flex justify-content-center align-items-center mx-4 mt-4"  style="color:rgba(9, 53, 71, 1);">
+    <span class="core_service px-5 d-flex justify-content-center align-items-center">
+    <i class="bi bi-people-fill mx-2" style="font-size:2rem; color:rgba(9, 53, 71, 1); "></i>
+    <b style="font-size:18px;">OUR CLIENTS</b>
+  </span>
+</div>
+
+ <div class="d-flex justify-content-center mt-2 mb-2">
+<div  class="d-flex flex-nowrap overflow-x-auto  gap-3 p-3 mx-2" style="display: flex;">
+    <div id="getservice" class="top_providers p-5 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center mb-1" style="color: rgba(9, 53, 71, 1);"><b>KILOLO LMT</b></span>
+     <span class="d-flex justify-content-center align-items-center p-2" style="border-radius:200px; border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded-circle" style="width:100px; height:100px;" src="{% static '/images/M&B/kilolo.jpg' %}">
+     </span>
+     </div>
+
+    <div id="getservice" class="top_providers p-5 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center mb-1" style="color: rgba(9, 53, 71, 1);"><b>SHAMWAA CMP</b></span>
+     <span class="d-flex justify-content-center align-items-center p-2" style="border-radius:200px; border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded-circle" style="width:100px; height:100px;" src="{% static '/images/M&B/shamwaa.jpg' %}">
+     </span>
+     </div>
+
+
+         <div id="getservice" class="top_providers p-5 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center mb-1" style="color: rgba(9, 53, 71, 1);"><b>RACD CMP</b></span>
+     <span class="d-flex justify-content-center align-items-center p-2" style="border-radius:200px; border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded-circle" style="width:100px; height:100px;" src="{% static '/images/M&B/racd.jpg' %}">
+     </span>
+     </div>
+
+
+    <div id="getservice" class="top_providers p-5 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center mb-1" style="color: rgba(9, 53, 71, 1);"><b>KAHEZE INV</b></span>
+     <span class="d-flex justify-content-center align-items-center p-2" style="border-radius:200px; border:solid 2px rgba(9, 53, 71, 1);;">
+         <img class="categoryimg rounded-circle" style="width:100px; height:100px;" src="{% static '/images/M&B/kaheze.jpg' %}">
+     </span>
+     </div>
+
+
+</div>
+</div>
+
+<!-- finish our clients -->
+</div>
+
+
+
+
+
+  <div class="animation_division " id="scrollDiv4" >
+  <!-- start certificates -->
+  <div class="d-flex justify-content-center align-items-center mx-4 mt-3"  style="color:rgba(9, 53, 71, 1);">
+    <span class="core_service px-5 d-flex justify-content-center align-items-center" >
+    <i class="bi bi-file-earmark-pdf mx-2" style="font-size:2rem; color:rgba(9, 53, 71, 1); "></i>
+    <b style="font-size:18px;">OUR CERTIFICATES</b>
+  </span>
+</div>
+
+  <div class="d-flex justify-content-center mb-2">
+    <div  class="d-flex flex-nowrap overflow-x-auto  gap-3 p-3 mx-2" style="display: flex;">
+
+    <div id="getservice" class="top_providers p-2 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center p-2 rounded" style=" border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded" style="width:300px; height:300px;" src="{% static '/images/M&B/registration.jpg' %}">
+     </span>
+     <span class="d-flex justify-content-center align-items-center mb-1 mt-2" style="color: rgba(9, 53, 71, 1);">
+      <a class="px-3 py-1 mx-2 text-light text-decoration-none" style="border-radius:25px; background-color: rgba(9, 53, 71, 1);">View</a>
+      <b>REGISTRATION CERTIFICATE</b></span>
+     </div>
+
+    <div id="getservice" class="top_providers p-2 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center p-2 rounded" style=" border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded" style="width:300px; height:300px;" src="{% static '/images/M&B/registration.jpg' %}">
+     </span>
+     <span class="d-flex justify-content-center align-items-center mb-1 mt-2" style="color: rgba(9, 53, 71, 1);">
+      <a class="px-3 py-1 mx-2 text-light text-decoration-none" style="border-radius:25px; background-color: rgba(9, 53, 71, 1);">View</a>
+      <b> ADVOCATES ACTS CERTIFICATE</b></span>
+     </div>
+
+         <div id="getservice" class="top_providers p-2 text-light flex-shrink-0 bg-white" >
+     {% comment %} box-shadow: 0 -2px 5px rgb(2, 24, 13); {% endcomment %}
+     <span class="d-flex justify-content-center align-items-center p-2 rounded" style=" border:solid 2px rgba(9, 53, 71, 1);">
+         <img class="categoryimg rounded" style="width:300px; height:300px;" src="{% static '/images/M&B/registration.jpg' %}">
+     </span>
+     <span class="d-flex justify-content-center align-items-center mb-1 mt-2" style="color: rgba(9, 53, 71, 1);">
+      <a class="px-3 py-1 mx-2 text-light text-decoration-none" style="border-radius:25px; background-color: rgba(9, 53, 71, 1);">View</a>
+      <b>M&B GROUP CERTIFICATE</b></span>
+     </div>
+
+
+    </div>
+  </div>
+        <!-- finish certificates -->
+</div>
+
+
+
+
+
+  <div class="animation_division " id="scrollDiv5" >
+<!-- Our team section -->
+    <div class="about_us mt-4 rounded p-5 mx-2 mb-1" >
+        <div class="text-center mx-4 mt-4">
+            <span class="d-flex justify-content-center align-items-center" style="color:rgba(9, 53, 71, 1); font-size:1.5rem;">OUR TEAM</span>
+            <i class="bi bi-quote mx-1" style="font-size:1.5rem; color:rgba(9, 53, 71, 1);"></i>
+            Welcome Customers to B&M GROUP LIMITED we are dedicated to providing comprehensive business solutions
+        that enables individuals, companies and organizations to establish, operate and grow seamlessyin Tanzania and beyond.
+        We especiale in guiding clients through complex regulatory frameworks, legal requirements and business development
+        processes ensuring efficiency, compliance and suistanable growth.
+         <a class="text-decoration-none " style="cursor:pointer; color:rgba(9, 53, 71, 1);" href="https://www.MBGroupLimited.com">https://www.MBGroupLimited.com</a>
+            <i class="bi bi-quote mx-1 " style="font-size:1.5rem; color:rgba(9, 53, 71, 1);"></i>
+        </div>
+        <span class="d-flex justify-content-center align-items-center gap-2" style="color:rgba(9, 53, 71, 1);"><b>Company Manager</b></span>
+        <div class="d-flex justify-content-center align-items-center mb-3">
+            <img class="categoryimg rounded-circle" style="width:90px; height:90px;" src="{% static '/images/M&B/person.jpg' %}">
+        </div>
+        <hr class="p-1" style="color:rgba(9, 53, 71, 1);">
+    </div>
+
+    <!-- finish our team -->
+  </div>
+
+
+    <!-- login/logout tag -->
+     <div class="fixed_tag d-flex justify-content-end align-items-center p-2 fixed-bottom mb-3 mx-3 gap-1">
+        <span class="p-1" style="border-radius:25px; background-color:rgba(9, 53, 71, 1);">
+        <span class="navbartabs text-decoration-none" >
+            {% if user.is_authenticated %}
+            <a class="p-2 bi bi-basket-fill mx-1 text-decoration-none ml-2 navbarbutton" data-label="Our service" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgb(4, 70, 39); "></a>
+            <a class="p-2 bi bi-briefcase-fill mx-1 text-decoration-none ml-2 navbarbutton" data-label="Our values" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgb(4, 70, 39); "></a>
+                {% else %}
+            <a class="p-2 bi bi-arrow-right-circle mx-1 text-decoration-none ml-2 navbarbutton" data-label="Login" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgb(4, 70, 39); "></a>
+            {% endif %}
+        </span>
+    </span>
+     </div> 
+
+
+
+{% endblock %}
