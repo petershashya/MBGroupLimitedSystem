@@ -48,7 +48,7 @@ body {
 }
 
 .heading_container h2 span {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .heading_container.heading_center {
@@ -107,11 +107,11 @@ a:focus {
 }
 
 .header_section .header_top .contact_nav a i {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .header_section .header_bottom {
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
 }
 
 .header_section .header_bottom .container-fluid {
@@ -120,7 +120,7 @@ a:focus {
 }
 
 .navbar-brand {
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     padding: 15px 35px;
 }
 
@@ -135,7 +135,7 @@ a:focus {
 .custom_nav-container .navbar-nav .nav-item .nav-link {
     padding: 3px 15px;
     margin: 10px 15px;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
     text-align: center;
     text-transform: uppercase;
 }
@@ -149,7 +149,7 @@ a:focus {
     height: 35px;
     padding: 0;
     border: none;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .custom_nav-container .nav_search-btn:hover {
@@ -252,7 +252,7 @@ a:focus {
 }
 
 .quote_btn-container a {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
     margin-right: 25px;
     text-transform: uppercase;
 }
@@ -332,7 +332,7 @@ a:focus {
 }
 
 .slider_section .play_btn button {
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -359,7 +359,7 @@ a:focus {
     position: absolute;
     top: 50%;
     left: 50%;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     opacity: 1;
     border-radius: 100%;
     -webkit-transform: translate(-50%, -50%);
@@ -410,7 +410,7 @@ a:focus {
 }
 
 .slider_section .detail-box h1 span {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .slider_section .detail-box p {
@@ -456,7 +456,7 @@ a:focus {
     position: unset;
     width: 50px;
     height: 50px;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     opacity: 1;
 }
 
@@ -477,7 +477,7 @@ a:focus {
 }
 
 .book_section h4 span {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section h4::before {
@@ -487,7 +487,7 @@ a:focus {
     bottom: 0;
     width: 75px;
     height: 2px;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
 }
 
 .book_section form {
@@ -503,7 +503,7 @@ a:focus {
 .book_section form .form-control {
     width: 100%;
     background-color: transparent;
-    border: 1px solid #563419;
+    border: 1px solid rgba(9, 53, 71, 1);
     height: 45px;
     outline: none;
     -webkit-box-shadow: none;
@@ -517,7 +517,7 @@ a:focus {
 
 #priceContainer {
     text-align: center;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
     ;
     /* Text color */
     font-size: 18px;
@@ -532,32 +532,32 @@ a:focus {
 }
 
 .book_section form .form-control::-webkit-input-placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form .form-control:-ms-input-placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form .form-control::-ms-input-placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form .form-control::placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form #inputDate {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form #inputDate input {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section form button.btn {
     background-color: #252525;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
     padding: 10px 45px;
     border-radius: 5px;
     margin-top: 10px;
@@ -579,7 +579,7 @@ a:focus {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .book_section .nice-select:after {
@@ -671,7 +671,7 @@ a:focus {
 
 .treatment_section .box .detail-box a {
     text-transform: uppercase;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .treatment_section .box .detail-box a:hover {
@@ -679,7 +679,7 @@ a:focus {
 }
 
 .team_section {
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
 }
 
 .team_section .heading_container {
@@ -731,7 +731,7 @@ a:focus {
 }
 
 .team_section .box .detail-box h6 {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .team_section .box .detail-box .social_box {
@@ -830,7 +830,7 @@ a:focus {
 
 .client_section .box .client_info .client_name h5 {
     font-weight: 600;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .client_section .box .client_info .client_name h6 {
@@ -852,7 +852,7 @@ a:focus {
 .client_section .carousel-control-next {
     width: 45px;
     height: 125px;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     opacity: 1;
     font-size: 28px;
     font-weight: bold;
@@ -887,7 +887,7 @@ a:focus {
 
 .contact_section .form_container input {
     width: 100%;
-    border: 1px solid #563419;
+    border: 1px solid rgba(9, 53, 71, 1);
     height: 50px;
     margin-bottom: 25px;
     padding-left: 15px;
@@ -897,11 +897,11 @@ a:focus {
 }
 
 .contact_section .form_container input::-webkit-input-placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .contact_section .form_container input:-ms-input-placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .contact_section .form_container input::-ms-input-placeholder {
@@ -909,7 +909,7 @@ a:focus {
 }
 
 .contact_section .form_container input::placeholder {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .contact_section .form_container input.message-box {
@@ -921,14 +921,14 @@ a:focus {
     text-transform: uppercase;
     display: inline-block;
     padding: 15px 65px;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     color: #ffffff;
     border-radius: 0;
     font-weight: bold;
 }
 
 .contact_section .form_container button:hover {
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
 }
 
 .contact_section .img-box img {
@@ -1008,7 +1008,7 @@ a:focus {
 
 .info_section .info_form form button {
     background-color: transparent;
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
     margin-top: 15px;
     text-transform: uppercase;
     font-size: 15px;
@@ -1032,7 +1032,7 @@ a:focus {
     left: 0;
     width: 15px;
     height: 15px;
-    background-color: #563419;
+    background-color: rgba(9, 53, 71, 1);
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -1057,7 +1057,7 @@ a:focus {
 
 .info_section .info_links .info_links_menu a:hover,
 .info_section .info_links .info_links_menu a.active {
-    color: #563419;
+    color: rgba(9, 53, 71, 1);
 }
 
 .info_section .info_post .post_box {

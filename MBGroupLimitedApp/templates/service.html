@@ -1,0 +1,258 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+{% load static %}  
+
+
+<div class="p-2 mt-5"></div>
+<!-- Our services -->
+
+
+  <!-- models tags -->
+   {% if user.is_authenticated %}
+  <div class="fixed_tag d-flex justify-content-end align-items-center p-2 fixed-bottom mb-3 mx-3 gap-1">
+    <span class="p-1" style="border-radius:25px; background-color:rgb(4, 70, 100); ">
+    <span class="navbartabs text-decoration-none" >
+        <a id="partner-btn" class="p-2 bi bi-people-fill mx-1 text-decoration-none ml-2 navbarbutton" data-label="parter" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgba(5, 45, 63, 1); " ></a>
+        <a id="client-btn" class="p-2 bi bi-person-wheelchair mx-1 text-decoration-none ml-2 navbarbutton" data-label="client" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgba(5, 45, 63, 1); " ></a>
+        <a id="certificate-btn" class="p-2 bi bi-file-earmark-pdf mx-1 text-decoration-none ml-2 navbarbutton" data-label="certificate" style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgba(5, 45, 63, 1); " ></a>
+        <a class="bi bi-arrow-left-circle text-decoration-none ml-2 navbarbutton"  style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgba(5, 45, 63, 1); "  data-label="Logout"  href="{% url 'logout_admin' %}" ></a>
+    </span>
+</span>
+ </div> 
+ {% else %}
+ {% endif %}
+
+
+ 
+
+<!-- The Mission Modal -->
+<div class="modal" id="mission">
+  <div class="modal-dialog modal-dialog-scrollable modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <!-- start service -->
+        <div class="corediv_service  mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+     <div class="core_service d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-graph-up-arrow mx-2" style="font-size:2.5rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">OUR MISSION</b></div>
+    <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div class="my-3">
+         To deliver quality, results-driven consulting services with competence, diligence, 
+        and innovation. We provide creative and impactful solutions that promote growth, sustainability,
+         financial inclusion, and positive impact across Africa.
+        </div>
+    </div>
+        </div>
+ <!-- finish service -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- finish mission modal-->
+
+
+
+
+<!-- The core values Modal -->
+<div class="modal" id="CoreValues">
+  <div class="modal-dialog modal-dialog-scrollable modal-md">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <!-- start service -->
+        <div class="corediv_service  mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+     <div class="core_service d-flex justify-content-center align-items-center px-2" >
+    <i class="bi bi-coin mx-2" style="font-size:2.5rem; color:rgba(9, 53, 71, 1);"></i>
+    <b style="font-size:20px;">CORE VALUES</b></div>
+    <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+        <div class="my-3">
+       • Integrity – Upholding the highest ethical standards in all our engagements, ensuring trust and transparency.<br>
+        • Professionalism – Delivering services with competence, diligence, and commitment to excellence.<br>
+        • Innovation – Developing creative and impactful solutions tailored to changing client and market needs.<br>
+        • Excellence – Striving for outstanding results in every service, exceeding expectations consistently.<br>
+        • Client-Centricity – Placing client needs at the heart of our work, ensuring satisfaction and long-term partnerships.
+        </div>
+    </div>
+        </div>
+ <!-- finish service -->
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- finish core values modal -->
+ 
+
+ 
+ <div class="animation_division mb-5 " id="scrollDiv" >
+    <!-- start Our services -->
+     <div class=" row mx-3 mb-3" >
+       <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+      <span class="core_service d-flex justify-content-center align-items-center px-2" >
+        <i class="bi bi-gear-wide-connected mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">BUSINESS SETUP AND REGISTRATION</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                   We help clients establish businesses by conducting official company searches, 
+                   registering business names, and offering legal advisory services. Our expertise 
+                   covers partnership and NGO registration, ensuring compliance with statutory frameworks.
+                    Additionally, we support foreign investors with business visas and work permits, 
+                    making the process smooth, lawful, and efficient for both individuals and organizations
+                     entering Tanzania’s business environment.
+    
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+    
+    
+             <!-- start service -->
+            <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+         <div class="core_service d-flex justify-content-center align-items-center px-2" >
+        <i class="bi bi-sliders mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">LEGAL AND COMPLIANCE ASSISTANCE</b></div>
+        <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+            Our team provides legal and compliance support,
+             including drafting and reviewing contracts, company incorporation,
+              and BRELA registration. We assist with customs clearance to ease import and
+               export operations. Furthermore, we manage certificate processing and renewals,
+                helping clients remain compliant with regulations. These services safeguard businesses,
+                 reduce risks, and ensure smooth operations while meeting Tanzania’s legal requirements effectively.
+    
+            </div>
+        </div>
+            </div>
+     <!-- finish service -->
+      </div>
+    
+      
+    
+       <div class="row mx-3" >
+               <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+      <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+        <i class="bi bi-bricks mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">LAND & PROPERTY CONSULTING</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                  
+                        We provide expert support in land and property matters, including conducting land 
+                      searches, due diligence, and acquisition consulting. Our services also cover human resource
+                       advisory, tax registration, and VAT certification. Additionally, we assist with financial 
+                       planning and reporting, ensuring businesses and individuals manage property investments 
+                       effectively while complying with legal and tax requirements in Tanzania.
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+            <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+      <span class="core_service  d-flex justify-content-center align-items-center"  >
+        <i class="bi bi-bank2 mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">BUSINESS FACILITATION & MARKETING</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                   Our facilitation services help businesses grow through sales, mergers, and strategic partnerships.
+                    We support clients in acquiring building permits, purchase certificates, and import/export licenses. 
+                    With added marketing connections and networking opportunities, we enable businesses to expand their
+                     presence, operate lawfully, and connect with relevant markets. These services strengthen operations
+                      and create pathways for sustainable growth.
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+    </div>
+    
+    
+     <div class="row mx-3" >
+             <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+      <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+        <i class="bi bi-currency-exchange mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">FINANCE & TAXATION</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                   We offer financial and taxation solutions tailored to business needs, including bookkeeping,
+                    accounting support, and preparation of feasibility studies and projection plans. Our services
+                     ensure proper record-keeping, tax compliance, and informed decision-making. With marketing links 
+                     and networking strategies, we not only manage financial processes but also help businesses access
+                      opportunities that support growth and long-term sustainability.
+    
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+            <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3" style="border-radius:35px; cursor:pointer;">
+      <span class="core_service  d-flex justify-content-center align-items-center px-2" >
+        <i class="bi bi-command mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">REGULATORY LICENSING & CERTIFICATION</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                   We assist clients in obtaining essential licenses and certifications, including Environmental 
+                   Impact Assessment (EIA), TIC/TiZESA, and chemical importation permits. Our services cover
+                    industrial licenses, fire and safety, transportation, and TBS standards. Additionally, we 
+                    support with EWURA, OSHA certificates, and trademark registration. These services ensure
+                     businesses operate legally, safely, and in compliance with Tanzania’s regulatory frameworks.
+    
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+          </div>
+    
+      <div class="row mx-3 " >
+            <!-- start service -->
+      <div class="corediv_service col-sm mx-2 my-2 mx-2 p-3 " style="border-radius:35px; cursor:pointer;">
+      <span class="core_service  d-flex justify-content-center align-items-center px-2"  >
+        <i class="bi bi-x-diamond-fill mx-2" style="font-size:3rem; color:rgba(9, 53, 71, 1);"></i>
+        <b style="font-size:20px;">LAND & PROPERTY CONSULTING & REAL ESTATE</b></span>
+      <div class="d-flex justify-content-center align-items-start mx-2 gap-2 rounded my-1" >
+            <div>
+                   We provide full real estate and property consulting solutions, including land acquisition, 
+                   searches, and due diligence. Our services cover property valuation, management, and securing 
+                   building permits. We also offer real estate brokerage and property sales support. With tailored 
+                   investment advisory, we guide clients in maximizing returns while ensuring compliance with legal
+                    and regulatory requirements in Tanzania.
+            </div>
+      </div>
+            </div>
+            <!-- finish service -->
+          </div>
+    <!-- finish our services-->
+        </div>
+    
+    
+    
+
+
+
+{% endblock %}

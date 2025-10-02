@@ -1,0 +1,423 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+{% load static %}  
+
+
+<div class="p-2 mt-5"></div>
+<!-- Account -->
+
+
+<!-- start personal details -->
+<div class="shadow mx-2 mt-2 py-4 mb-3 " style="border-radius:25px;">
+    <span class="h4 mx-4 d-flex justify-content-center align-items-center"  style="color:rgba(5, 45, 63, 1);">MY PROFILE</span>
+<div class="d-flex justify-content-center align-items-center gap-2 mx-2 " >
+    <div>
+        <span class="d-flex justify-content-center align-items-start mx-1">
+            {% if userdetail.profile_image %}
+            <img src="{{userdetail.profile_image.url}}" alt="Profile Picture" class="img-thumbnail rounded-circle p-2" style="border:1px solid rgba(5, 45, 63, 1); height:90px; width:90px;" >
+            {% else %} 
+
+            <span class="p-3" style="border-radius:25px; border:1px solid rgba(5, 45, 63, 1);">
+              <i class="bi bi-person-fill mb-1" style="font-size: 3rem"></i>
+            </span>
+           {% endif %} 
+         </span>
+    </div>
+    <div class="details" style="background-color:white; color:rgba(5, 45, 63, 1);">
+        <span class="h6" style="color:rgba(5, 45, 63, 1);">
+             <b class="text-uppercase"> {{userdetail.company_rank}} </b>
+        </span><br>
+        <span class="" style="color:rgba(5, 45, 63, 1);">
+             {{ user.first_name }} {{ user.last_name }}
+        </span><br>
+        <span class=" " style="color:rgba(5, 45, 63, 1);">
+             {{ userdetail.email }}
+        </span><br>
+        <span class=" " style="color:rgba(5, 45, 63, 1);"><i class="bi bi-phone" style=" font-size:15px; color:rgba(5, 45, 63, 1);"></i>
+             {{ userdetail.mobile_contact }} 
+            </span><br>
+                <span class=" " style="color:rgba(5, 45, 63, 1);"><i class="bi bi-person-fill" style=" font-size:15px; color:rgba(5, 45, 63, 1);"></i>
+             <b>{{ userdetail.age}} </b>AGE , <b> {{ userdetail.gender}} </b>Gender ,
+            </span>
+        <span class=" " style="color:rgba(5, 45, 63, 1);"><i class="bi bi-" style=" font-size:15px; color:rgba(5, 45, 63, 1);"></i>
+             {{ userdetail.address}}  {{ userdetail.region}}  
+            </span><br><br>
+    </div>
+</div>
+            <span class="d-flex justify-content-center align-items-center gap-1">
+        {% comment %} <a id="add_list" class="px-3 py-2  text-light  text-decoration-none edit-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(5, 45, 63, 1);"><i class="bi bi-pencil mx-1 text-bold text-light" style=" font-size:12px;"></i>Edit </a>
+        <a id="add_list" class="px-3 py-2 text-light  text-decoration-none delete-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(97, 22, 9, 1);"><i class="bi bi-trash mx-1 text-bold text-light" style=" font-size:12px;"></i>Delete </a> {% endcomment %}
+         <a id="add_list"class="px-3 py-2   text-light text-decoration-none" style="background-color:rgba(5, 45, 63, 1);"><i class="bi bi-eye-fill mx-1 text-bold text-light" style=" font-size:15px;"></i>{{homepage_logs}} viewers </a>
+            </span>
+
+<hr class="col-10 mx-auto">
+<div class="p-3 mx-3" style="background-color:rgb(226, 240, 233); border-radius:25px;">
+<h5 class="mt-2 p-2 d-flex justify-content-center bg-light" style="color:rgba(5, 45, 63, 1); border-radius:25px;">About In Partner</h5>
+<div class="px-3 d-flex justify-content-center">
+    <p class="px-3 d-flex justify-content-center" style="color:rgba(5, 45, 63, 1);">
+        <i class="bi bi-quote"></i> 
+         {{partner.description}} 
+        <i class="bi bi-quote"></i>
+    </p>
+</div>
+
+<div class="social_box align-items d-flex justify-content-center align-items-center gap-2">
+    <a data-bs-toggle="tooltip" title="{{userdetail.instagram_account}}" class="text-decoration-none" style="cursor:pointer;">
+        <i class="bi bi-instagram" aria-hidden="true" style="color:rgba(5, 45, 63, 1); font-size:20px;"></i>
+      </a>
+    <a  data-bs-toggle="tooltip" title="{{userdetail.facebook_account}}" class="text-decoration-none"  style="cursor:pointer;">
+      <i   class="bi bi-facebook " aria-hidden="true" style="color:rgba(5, 45, 63, 1); font-size:20px;"></i>
+    </a>
+    <a data-bs-toggle="tooltip" title="{{userdetail.twitter_account}}" class="text-decoration-none" style="cursor:pointer;">
+      <i  class="bi bi-twitter-x " aria-hidden="true" style="color:rgba(5, 45, 63, 1); font-size:20px;"></i>
+    </a>
+    <a data-bs-toggle="tooltip" title="{{userdetail.youtube_account}}"  class="text-decoration-none" style="cursor:pointer;">
+      <i  class="bi bi-youtube " aria-hidden="true" style="color:rgba(5, 45, 63, 1); font-size:25px;"></i>
+    </a>
+    <a data-bs-toggle="tooltip" title="{{userdetail.website_link}}" href="{{userdetail.website_link}}" class="text-decoration-none" style="cursor:pointer;">
+      <i  class="bi bi-link " aria-hidden="true" style="color:rgba(5, 45, 63, 1); font-size:30px;"></i>
+    </a>
+  </div>
+</div>
+</div>
+<!-- finish personal details -->
+ 
+
+
+<!-- starting listing BM Admins -->
+ 
+<!-- first division for showing users list -->
+ <div class="mb-4 mt-2 d-flex justify-content-center  align-items-center">
+<div class="shadow  container bg-white p-3 "
+     style=" border-radius:20px;">
+
+  <div class="tab-content">
+    <div id="users" class="tab-pane active">
+     
+      <h3 class="d-flex justify-content-center mt-3">List of MB Staffs</h3>
+     
+      <!-- counts + add -->
+      <span class="d-flex justify-content-center align-items-center gap-2 mb-2">
+        <a class="text-light btn btn-sm" style="background-color: rgba(4, 84, 121, 1);">
+          Total Staff <span class="badge badge-pill" style="background-color: rgba(4, 84, 121, 1);">
+            {{ staff_users_count }}
+          </span>
+        </a>
+      </span>
+
+      <!-- table -->
+      <div class="table-responsive-sm">
+        <form method="GET" action="">
+          {% csrf_token %}
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="select-all"></th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Active</th>
+                <th>Superuser</th>
+                <th class="d-flex justify-content-center align-items-center gap-1">
+                  <button type="submit" name="delete_selected"
+                          class="btn btn-sm btn-outline-danger d-flex justify-content-center">
+                    <i class="bi bi-trash"></i> Staffs
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in staff_users %}
+              <tr>
+                <td><input type="checkbox" name="selected_users" value="{{ user.id }}"></td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.is_active }}</td>
+                <td>{{ user.is_superuser }}</td>
+
+                <td class="d-flex justify-content-center align-items-center gap-2">
+                    <button class="btn btn-sm btn-primary edit-user-btn"  data-id="{{ user.id }}">
+                    <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-sm btn-danger delete-user-btn" data-id="{{ user.id }}">
+                    <i class="bi bi-trash"></i>
+                    </button>
+               </td>
+              </tr>
+              {% empty %}
+              <tr>
+                <td colspan="6" class="text-center">No Staff found.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</div>
+<script>
+  document.getElementById('select-all').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_users"]');
+    for (var checkbox of checkboxes) {
+      checkbox.checked = this.checked;
+    }
+  });
+</script>
+ <!-- endlisting BM admins -->
+
+
+
+<!-- start listing partners -->
+ 
+<!-- Partner Table -->
+  <div class="mb-4 mt-2 d-flex justify-content-center  align-items-center">
+<div class="shadow  container bg-white p-3 "
+     style=" border-radius:20px;">
+
+  <div class="tab-content">
+    <div id="users" class="tab-pane active">
+     
+      <h3 class="d-flex justify-content-center mt-3">List of Partners</h3>
+            <!-- counts + add -->
+      <span class="d-flex justify-content-center align-items-center gap-2 mb-2">
+        <a class="text-light btn btn-sm" style="background-color: rgba(4, 84, 121, 1);">
+          Total Partner <span class="badge badge-pill" style="background-color: rgba(4, 84, 121, 1);">
+            {{ partner_count }}
+          </span>
+        </a>
+      </span>
+     <div class="table-responsive-sm">
+
+    <form method="GET" action="">
+          {% csrf_token %}
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th><input type="checkbox" id="select-all-partners"></th>
+      <th>Profile</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Region</th>
+      <th>Rank</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for partner in partners %}
+    <tr>
+      <td><input type="checkbox" name="selected_partners" value="{{ partner.id }}"></td>
+      <td>
+        {% if partner.profile_image %}
+          <img src="{{ partner.profile_image.url }}" width="40" height="40" class="rounded-circle">
+        {% endif %}
+      </td>
+      <td>{{ partner.full_name }}</td>
+      <td>{{ partner.email }}</td>
+      <td>{{ partner.region }}</td>
+      <td>{{ partner.partner_rank }}</td>
+      <td class="d-flex gap-1">
+        <button class="btn btn-sm btn-primary edit-partner-btn" data-id="{{ partner.id }}">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger delete-partner-btn" data-id="{{ partner.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  document.getElementById('select-all-partners').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_partners"]');
+    for (var checkbox of checkboxes) {
+      checkbox.checked = this.checked;
+    }
+  });
+</script>
+<!-- end list of  partners -->
+
+
+
+<!-- starting listing Clients --> 
+<div class="mb-4 mt-2 d-flex justify-content-center align-items-center">
+  <div class="shadow container bg-white p-3" style="border-radius:20px;">
+    <h3 class="d-flex justify-content-center mt-3">List of Clients</h3>
+          <!-- counts + add -->
+      <span class="d-flex justify-content-center align-items-center gap-2 mb-2">
+        <a class="text-light btn btn-sm" style="background-color: rgba(4, 84, 121, 1);">
+          Total Clients <span class="badge badge-pill" style="background-color: rgba(4, 84, 121, 1);">
+            {{ client_count }}
+          </span>
+        </a>
+      </span>
+
+    <div class="table-responsive-sm">
+
+    <form method="GET" action="">
+          {% csrf_token %}
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="select-all-clients"></th>
+            <th>Profile</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Mobile No</th>
+            <th>Email</th>
+            <th>Region</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for client in clients %}
+          <tr>
+            <td><input type="checkbox" name="selected_clients" value="{{ client.id }}"></td>
+            <td>
+              {% if client.profile_image %}
+                <img src="{{ client.profile_image.url }}" alt="Client Image" width="50" height="50" class="rounded-circle">
+              {% else %}
+                <span class="text-muted">No Image</span>
+              {% endif %}
+            </td>
+            <td>{{ client.title }}</td>
+            <td>{{ client.company_choice }}</td>
+            <td>{{ client.mobile_no }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.region }}</td>
+            <td class="d-flex gap-1">
+        <button class="btn btn-sm btn-primary edit-client-btn" data-id="{{ client.id }}">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger delete-client-btn" data-id="{{ client.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="6" class="text-center">No Clients found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  document.getElementById('select-all-clients').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_clients"]');
+    for (var checkbox of checkboxes) {
+      checkbox.checked = this.checked;
+    }
+  });
+</script>
+
+<!-- end list of clients -->
+
+
+
+
+<!-- starting listing Certificates -->
+<div class="mb-4 mt-2 d-flex justify-content-center align-items-center">
+  <div class="shadow container bg-white p-3" style="border-radius:20px;">
+    <h3 class="d-flex justify-content-center mt-3">List of Certificates</h3>
+
+    <div class="table-responsive-sm">
+              <!-- counts + add -->
+      <span class="d-flex justify-content-center align-items-center gap-2 mb-2">
+        <a class="text-light btn btn-sm" style="background-color: rgba(4, 84, 121, 1);">
+          Total Certificates <span class="badge badge-pill" style="background-color: rgba(4, 84, 121, 1);">
+            {{ certificate_count }}
+          </span>
+        </a>
+      </span>
+
+        <form method="GET" action="">
+          {% csrf_token %}
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="select-all-certificates"></th>
+            <th>Image</th>
+            <th>Certificate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for certificate in certificates %}
+          <tr>
+            <td><input type="checkbox" name="selected_certificates" value="{{ certificate.id }}"></td>
+            <td>
+              {% if certificate.image %}
+                <img src="{{ certificate.image.url }}" alt="Certificate" width="60" height="60">
+              {% else %}
+                <span class="text-muted">No Image</span>
+              {% endif %}
+            </td>
+            <td>{{ certificate.certificate_name }}</td>
+            <td class="d-flex gap-1">
+        <button class="btn btn-sm btn-primary edit-certificate-btn" data-id="{{certificate.id }}">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-danger delete-certificate-btn" data-id="{{certificate.id }}">
+          <i class="bi bi-trash"></i>
+        </button>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="2" class="text-center">No Certificates found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  document.getElementById('select-all-certificates').addEventListener('click', function() {
+    var checkboxes = document.querySelectorAll('input[name="selected_certificates"]');
+    for (var checkbox of checkboxes) {
+      checkbox.checked = this.checked;
+    }
+  });
+</script>
+<!-- end list of certificates-->
+
+
+      <!-- login/logout tag -->
+         {% if user.is_authenticated %}
+     <div class="fixed_tag d-flex justify-content-end align-items-center p-2 fixed-bottom mb-3 mx-3 gap-1">
+        <span class="p-1" style="border-radius:25px; background-color:rgba(9, 53, 71, 1);">
+        <span class="navbartabs text-decoration-none" >
+              <a class="bi bi-arrow-left-circle text-decoration-none navbarbutton"  style="background-color:rgb(219, 228, 231); border-radius:50px; color:rgba(5, 45, 63, 1); "  data-label="Logout"  href="{% url 'logout_admin' %}" ></a>
+        </span>
+    </span>
+     </div> 
+          {% else %}
+            {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+
+{% load static %}
+<!-- Certificate Form Modal -->
+<div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="certificateModalLabel">Add Certificate</h5>
+        <button type="button" class="btn btn-sm btn-outline-secondary btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <section class="book_section mb-2" id="details">
+          <div class="container">
+            <form id="certificateForm" method="post" action="{% url 'post_certificate' %}">
+              {% csrf_token %}
+              <h4>FILL <span>Certificate</span></h4>
+
+              <!-- Certificate Name -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.certificate_name.id_for_label }}">Certificate Name</label>
+                    <input type="text" class="form-control" id="{{ form.certificate_name.id_for_label }}" name="certificate_name" placeholder="Enter Certificate Name" required>
+                  </div>
+                </div>
+              </div>
+
+                 <!-- Certificate Image -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.image.id_for_label }}">Certificate Image</label>
+                    <input type="file" class="form-control" id="{{ form.image.id_for_label }}" name="image" accept="image/*">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="btn-box">
+                <button id="postcertificate_button" type="submit" class="btn btn-sm btn-light bg-secondary text-white">Post</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

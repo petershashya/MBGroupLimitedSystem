@@ -1,0 +1,21 @@
+
+<div class="modal fade" id="deleteuserModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="deleteuserForm" method="post" action="{% url 'admin_user_delete' user_obj.id %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title">Delete User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete <b>{{ user_obj.username }}</b>?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="postdeleteuser_button" class="btn btn-danger">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

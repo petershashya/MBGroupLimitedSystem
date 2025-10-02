@@ -535,7 +535,7 @@
 
     <span>
       <a class="text-light text-decoration-none align-items-end" style="font-size:1.5rem;" href="{% url 'home' %}">
-        B&M
+        <img src="{% static 'images/M&B/mb logo.png' %}" alt="" class="rounded-pill " style="width:50px; height:40px">
       </a>
     </span>
 
@@ -555,24 +555,18 @@
     <span class="p-1" style="background-color:rgb(4, 70, 100); border-radius:25px;">
       <span class="navbartabs text-decoration-none" id="navbartabs">
         {% if user.is_authenticated %}
-          <a class="bi bi-briefcase-fill text-decoration-none ml-1 navbarbutton" data-label="Services"></a>
-          <a class="bi bi-binoculars-fill text-decoration-none ml-1 navbarbutton" data-label="Mission&Vission" ></a>
-          <a class="bi bi-coin text-decoration-none ml-1 navbarbutton" data-label="CoreValues" ></a>
-          {% comment %} <a class="bi bi-info-circle-fill text-decoration-none ml-2 navbarbutton" data-label="About-Us"></a> {% endcomment %}
-          <a class="bi bi-people text-decoration-none ml-1 navbarbutton" data-label="Team"  ></a>
-          <a class="bi bi-people-fill text-decoration-none ml-1 navbarbutton" data-label="Patners"  ></a>
-          <a class="bi bi-person-wheelchair text-decoration-none ml-1 navbarbutton" data-label="Clients"  ></a>
-         {% comment %} <a class="bi bi-person-fill text-decoration-none ml-2 navbarbutton" data-label="Account" ></a> {% endcomment %}
-          <a class="bi bi-arrow-left-circle text-decoration-none ml-2 navbarbutton" data-label="Logout" ></a>
+          <a class="bi bi-briefcase-fill text-decoration-none ml-1 navbarbutton" data-label="Services"  href="{% url 'service' %}"></a>
+          <a class="bi bi-graph-up-arrow text-decoration-none ml-1 navbarbutton" data-label="Mission" data-bs-toggle="modal" data-bs-target="#mission"></a>
+          <a class="bi bi-coin text-decoration-none ml-1 navbarbutton" data-label="CoreValues" data-bs-toggle="modal" data-bs-target="#CoreValues"></a> 
+          {% comment %} <a class="bi bi-people-fill text-decoration-none ml-1 navbarbutton" data-label="Patners"  ></a>
+          <a class="bi bi-person-wheelchair text-decoration-none ml-1 navbarbutton" data-label="Clients"  ></a> {% endcomment %}
+          <a class="bi bi-person-fill text-decoration-none ml-2 navbarbutton" data-label="Account" href="{% url 'account' %}" ></a> 
         {% else %}
-          <a class="bi bi-briefcase-fill text-decoration-none ml-1 navbarbutton" data-label="Services"></a>
-          <a class="bi bi-binoculars-fill text-decoration-none ml-1 navbarbutton" data-label="Mission&Vission" ></a>
-          <a class="bi bi-coin text-decoration-none ml-1 navbarbutton" data-label="CoreValues" ></a>
-          {% comment %} <a class="bi bi-info-circle-fill text-decoration-none ml-2 navbarbutton" data-label="About-Us"></a> {% endcomment %}
-          {% comment %} <a class="bi bi-people text-decoration-none ml-1 navbarbutton" data-label="Team"  ></a> {% endcomment %}
-          <a class="bi bi-people-fill text-decoration-none ml-1 navbarbutton" data-label="Patners"  ></a>
-          <a class="bi bi-person-wheelchair text-decoration-none ml-1 navbarbutton" data-label="Clients"  ></a>
-          {% comment %} <a class="bi bi-person-fill text-decoration-none ml-2 navbarbutton" data-label="Account" ></a> {% endcomment %}
+          <a class="bi bi-briefcase-fill text-decoration-none ml-1 navbarbutton" data-label="Services" href="{% url 'service' %}"></a>
+          {% comment %} <a class="bi bi-binoculars-fill text-decoration-none ml-1 navbarbutton" data-label="Mission&Vission" ></a>{% endcomment %}
+          <a class="bi bi-graph-up-arrow text-decoration-none ml-1 navbarbutton" data-label="Mission" data-bs-toggle="modal" data-bs-target="#mission"></a>
+          <a class="bi bi-coin text-decoration-none ml-1 navbarbutton" data-label="CoreValues" data-bs-toggle="modal" data-bs-target="#CoreValues"></a> 
+          {% comment %} <a class="bi bi-arrow-right-circle text-decoration-none ml-2 navbarbutton" data-label="Login" href="{% url 'login' %}"></a> {% endcomment %}
           {% endif %}
       </span>
     </span>
@@ -583,6 +577,7 @@
   <!-- Main body -->
   {% block content %}
   {% endblock content %}
+
 
   <!-- Footer Info Section -->
   <section class="row p-4 m-0 w-100" id="footer" style="background-color:rgba(9, 53, 71, 1);">
@@ -621,21 +616,28 @@
     <div class="col-sm">
       <h5 class="text-light mt-3">CONTACT US</h5>
       <p class="text-light">
-        <i class="bi bi-phone"></i> +225 715455649 | +225 675788670<br>
+        {% comment %} <i class="bi bi-phone"></i> +225 715455649 | +225 675788670<br>
         <i class="bi bi-envelope"></i> P.O.BOX 33951<br>
         <i class="bi bi-geo-alt"></i> Dar-es-Salaam, Tanzania<br>
         <i class="bi bi-envelope"></i> info@rems-africa.com | rems.africaconsultancy@gmail.com
-        <a style="cursor:pointer;" href="https://www.rems.africa.com">https://www.rems.africa.com</a>
+        <a style="cursor:pointer;" href="https://www.rems.africa.com">https://www.rems.africa.com</a> {% endcomment %}
+        {% comment %} {% for userdetail in userdetails %} {% endcomment %}
+        <i class="bi bi-phone"></i> {{aboutdetail.mobile_contact}}<br>
+        <i class="bi bi-envelope"></i> {{aboutdetail.address}}<br>
+        <i class="bi bi-geo-alt"></i> {{aboutdetail.region}}<br>
+        <i class="bi bi-envelope"></i> {{aboutdetail.email}}
+        <a class="bi bi-link" style="cursor:pointer; font-size:25;" href="{{aboutdetail.website_link}}">{{aboutdetail.website_link}}</a>
+        {% comment %} {% endfor %} {% endcomment %}
       </p>
     </div>
 
         <div class="col-sm-3 mt-2">
       <h5 class="text-light text-center mb-3">SOCIAL MEDIA</h5>
       <div class="d-flex justify-content-center align-items-center gap-3">
-        <a href="{{admin.instagram}}" class="text-decoration-none"><i class="bi bi-instagram text-light" style="font-size:1.8rem"></i></a>
-        <a href="{{admin.youtube}}" class="text-decoration-none"><i class="bi bi-youtube text-light" style="font-size:2.5rem"></i></a>
-        <a href="{{admin.facebook}}" class="text-decoration-none"><i class="bi bi-facebook text-light" style="font-size:1.8rem"></i></a>
-        <a href="{{admin.twitter}}" class="text-decoration-none"><i class="bi bi-twitter text-light" style="font-size:1.8rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.instagram_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-instagram text-light" style="font-size:1.8rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.youtube_account}}" href="{{userdetail.youtube_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-youtube text-light" style="font-size:2.5rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.facebook_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-facebook text-light" style="font-size:1.8rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.twitter_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-twitter text-light" style="font-size:1.8rem"></i></a>
       </div>
     </div>
   </div>
@@ -647,8 +649,12 @@
     <hr class="mt-0 border border-light">
     <div class="container text-center">
       <p class="text-light mb-0">
+        <span class="d-flex justify-content-center align-items-center gap-1">
+        <img src="{% static 'images/M&B/mb logo.png' %}" alt="" class="pill mt-1" style="width:100px; height:70px; border-radius:35px;">
+        </span>
+        <b class="text-uppercase">Group Limited</b><br>
         &copy; <span id="displayYear"></span> All Rights Reserved<br>
-        <span class="text-warning">Developed By Peter Shashya</span>
+        <span class="text-warning">Developed & mantained By MB Group Limited</span>
       </p>
     </div>
   </footer>
@@ -734,6 +740,207 @@
         }
     });
 </script>
+
+
+
+<!-- start general post -->
+<script>
+$(document).ready(function() {
+    // CSRF helper
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    // ---------------- Generic function to show modal ----------------
+    function showModal(buttonClass, url, modalId) {
+        $(document).on('click', buttonClass, function() {
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function(response) {
+                    $('body').append(response);
+                    $(modalId).modal('show');
+                    $(modalId).on('hidden.bs.modal', function() {
+                        $(this).remove();
+                    });
+                },
+                error: function() {
+                    alert('An error occurred while loading the form.');
+                }
+            });
+        });
+    }
+
+    // ---------------- Generic function to post form ----------------
+    function postForm(buttonId, formId, modalId) {
+        $(document).on('click', buttonId, function() {
+            var button = $(this);
+            var form = $(formId)[0];
+            var formData = new FormData(form);
+            button.prop('disabled', true);
+            $.ajax({
+                url: $(form).attr('action'),
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: { 'X-CSRFToken': csrftoken },
+                success: function(response) {
+                    $(modalId).modal('hide');
+                    button.prop('disabled', false);
+                    location.reload(); // Refresh page to show new entry
+                },
+                error: function(xhr) {
+                    button.prop('disabled', false);
+                    if (xhr.status === 400) {
+                        alert('You have already posted this entry.');
+                    } else {
+                        alert('An error occurred while posting the form.');
+                    }
+                }
+            });
+        });
+    }
+
+    // ---------------- Initialize Modals and Form Posts ----------------
+    // Partner
+    showModal('#partner-btn', '/post_partner/', '#partnerModal');
+    postForm('#postpartner_button', '#partnerForm', '#partnerModal');
+
+    // Client
+    showModal('#client-btn', '/post_client/', '#clientModal');
+    postForm('#postclient_button', '#clientForm', '#clientModal');
+
+    // Certificate
+    showModal('#certificate-btn', '/post_certificate/', '#certificateModal');
+    postForm('#postcertificate_button', '#certificateForm', '#certificateModal');
+});
+</script>
+
+
+
+<script>
+$(document).ready(function () {
+    // ---------------- CSRF helper ----------------
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie("csrftoken");
+
+    // ---------------- Generic Show Modal ----------------
+    function showModal(buttonClass, urlTemplate, modalId) {
+        $(document).on("click", buttonClass, function (e) {
+            e.preventDefault();
+            var objId = $(this).data("id");  // dynamic ID from button
+            var url = urlTemplate.replace("0", objId); // inject ID
+            $.ajax({
+                url: url,
+                method: "GET",
+                success: function (response) {
+                    $("body").append(response);
+                    $(modalId).modal("show");
+                    $(modalId).on("hidden.bs.modal", function () {
+                        $(this).remove(); // clean after closing
+                    });
+                },
+                error: function () {
+                    alert("Error loading modal form.");
+                },
+            });
+        });
+    }
+
+    // ---------------- Generic Post Form ----------------
+    function postForm(buttonId, formId, modalId) {
+        $(document).on("click", buttonId, function () {
+            var button = $(this);
+            var form = $(formId)[0];
+            var formData = new FormData(form);
+            button.prop("disabled", true);
+            $.ajax({
+                url: $(form).attr("action"),
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: { "X-CSRFToken": csrftoken },
+                success: function (response) {
+                    $(modalId).modal("hide");
+                    button.prop("disabled", false);
+                    location.reload(); // refresh table
+                },
+                error: function () {
+                    button.prop("disabled", false);
+                    alert("Error submitting form.");
+                },
+            });
+        });
+    }
+
+    // ---------------- USERS (Accounts/Staffs) ----------------
+    showModal(".edit-user-btn", "/admin_user_edit/0/", "#edituserModal");
+    postForm("#postedituser_button", "#edituserForm", "#edituserModal");
+
+    showModal(".delete-user-btn", "/admin_user_delete/0/", "#deleteuserModal");
+    postForm("#postdeleteuser_button", "#deleteuserForm", "#deleteuserModal");
+
+
+    //Superuser Edit
+      showModal(".edit-superuser-btn", "/admin_superuser_edit/0/", "#editsuperuserModal");
+      postForm("#posteditsuperuser_button", "#editsuperuserForm", "#editsuperuserModal");
+
+      // Superuser Delete
+      showModal(".delete-superuser-btn", "/admin_superuser_delete/0/", "#deletesuperuserModal");
+      postForm("#postdeletesuperuser_button", "#deletesuperuserForm", "#deletesuperuserModal");
+
+
+      // ---------------- PARTNERS ----------------
+    showModal(".edit-partner-btn", "/partner_edit/0/", "#editpartnerModal");
+    postForm("#posteditpartner_button", "#editpartnerForm", "#editpartnerModal");
+
+    showModal(".delete-partner-btn", "/partner_delete/0/", "#deletepartnerModal");
+    postForm("#postdeletepartner_button", "#deletepartnerForm", "#deletepartnerModal");
+
+                         // CLIENTS
+    showModal(".edit-client-btn", "/client_edit/0/", "#editclientModal");
+    postForm("#posteditclient_button", "#editclientForm", "#editclientModal");
+
+    showModal(".delete-client-btn", "/client_delete/0/", "#deleteclientModal");
+    postForm("#postdeleteclient_button", "#deleteclientForm", "#deleteclientModal");
+
+                        // CERTIFICATES
+    showModal(".edit-certificate-btn", "/certificate_edit/0/", "#editcertificateModal");
+    postForm("#posteditcertificate_button", "#editcertificateForm", "#editcertificateModal");
+    
+    showModal(".delete-certificate-btn", "/certificate_delete/0/", "#deletecertificateModal");
+    postForm("#postdeletecertificate_button", "#deletecertificateForm", "#deletecertificateModal");
+
+});
+</script>
+
 
 
 </body>

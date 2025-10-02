@@ -1,0 +1,97 @@
+
+{% load static %}
+<!-- Client Form Modal -->
+<div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="clientModalLabel">Add Client</h5>
+        <button type="button" class="btn btn-sm btn-outline-secondary btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <section class="book_section mb-2" id="details">
+          <div class="container">
+            <form id="clientForm" method="post" action="{% url 'post_client' %}">
+              {% csrf_token %}
+              <h4>FILL <span>Client</span></h4>
+
+              <!-- Partner Name -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.title.id_for_label }}">Client Title</label>
+                    <input type="text" class="form-control" id="{{ form.title.id_for_label }}" name="title" placeholder="Enter Client Tittle" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.mobile_no.id_for_label }}">Contact Number</label>
+                    <input type="text" class="form-control" id="{{ form.mobile_no.id_for_label }}" name="mobile_no" placeholder="Enter contact number" required>
+                  </div>
+                </div>
+              </div>
+
+
+               <!-- Email -->
+               <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    <input type="email" class="form-control" id="{{ form.email.id_for_label }}" name="email" placeholder="Enter email">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Region -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.region.id_for_label }}">Region</label>
+                    <input type="text" class="form-control" id="{{ form.region.id_for_label }}" name="region" placeholder="Enter region" required>
+                  </div>
+                </div>
+              </div>
+
+                  <!-- Rank -->
+                    <div class="row mb-2">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="{{ form.company_choice.id_for_label }}">Company Choice</label>
+                            <input type="text" class="form-control" id="{{ form.company_choice.id_for_label }}" name="company_choice" placeholder="Enter Client Rank" required>
+                        </div>
+                      </div>
+                     </div>
+
+
+                 <!-- Profile Image -->
+              <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="{{ form.profile_image.id_for_label }}">Profile Image</label>
+                    <input type="file" class="form-control" id="{{ form.profile_image.id_for_label }}" name="profile_image" accept="image/*">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="btn-box">
+                <button id="postclient_button" type="submit" class="btn btn-sm btn-light bg-secondary text-white">Post</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

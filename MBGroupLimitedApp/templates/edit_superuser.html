@@ -1,0 +1,22 @@
+
+<div class="modal fade" id="editsuperuserModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="editsuperuserForm" method="post" enctype="multipart/form-data"
+            action="{% url 'admin_superuser_edit' superuser_obj.id %}">
+        {% csrf_token %}
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Superuser</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          {{ admin_form.as_p }}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="postedituser_button" class="btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

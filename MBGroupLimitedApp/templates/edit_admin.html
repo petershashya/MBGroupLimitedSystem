@@ -1,0 +1,210 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<style>
+    /* Password input and show/hide button */
+    .password-container {
+        position: relative;
+    }
+  
+    .password-container input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+  
+    .password-container .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        user-select: none;
+    }
+  
+    /* Strength indicator bar */
+    .strength-meter {
+        height: 5px;
+        background-color: #ddd;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+  
+    .strength-meter-fill {
+        height: 100%;
+        width: 0;
+        border-radius: 5px;
+        transition: width 0.3s ease-in-out;
+    }
+  
+    /* Strength level colors */
+    .weak {
+        background-color: red;
+    }
+  
+    .medium {
+        background-color: orange;
+    }
+  
+    .strong {
+        background-color: green;
+    }
+  </style>
+  
+<section class="book_section layout_padding mt-5" id="details">
+    <div class="row">
+        <div class="col">
+            <div class="container d-flex justify-content-center">
+                <form method="post" enctype="multipart/form-data">
+                    <h3>Modify Your Details</h3>
+                    {% csrf_token %}
+
+                    <!-- Render each field individually with custom class -->
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_form.username.id_for_label }}">Username</label>
+                            {% comment %} {{ user_form.username }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_form.username.id_for_label }}" name="{{ user_form.username.html_name }}" value="{{ user_form.username.value }}" placeholder="Fill Username" required>
+                        </div>
+                        <!-- for password input -->
+                        <div class="form-group col-md-3 password-container">
+                            <label for="id_password">Password</label>
+                            <input type="password" class="form-control" id="id_password" name="{{ user_form.password.html_name }}" placeholder="Enter new password or leave blank">
+                            <span class="toggle-password mt-2 mx-2 bg-light p-2"><i class="bi bi-eye-fill"></i></span>
+                            <div class="strength-meter">
+                                <div class="strength-meter-fill" id="password-strength"></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_form.email.id_for_label }}">Email</label>
+                            {% comment %} {{ user_form.email }} {% endcomment %}
+                            <input type="email" class="form-control" id="{{ user_form.email.id_for_label }}" name="{{ user_form.email.html_name }}" value="{{ user_form.email.value }}" placeholder="Fill Email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_form.first_name.id_for_label }}">First Name</label>
+                            {% comment %} {{ user_form.first_name }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_form.first_name.id_for_label }}" name="{{ user_form.first_name.html_name }}" value="{{ user_form.first_name.value }}" placeholder="Fill First Name" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_form.last_name.id_for_label }}">Last Name</label>
+                            {% comment %} {{ user_form.last_name }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_form.last_name.id_for_label }}" name="{{ user_form.last_name.html_name }}" value="{{ user_form.last_name.value }}" placeholder="Fill Last Name" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.mobile_contact.id_for_label }}">Mobile</label>
+                            {% comment %} {{ user_detail_form.mobile_contact }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_detail_form.mobile_contact.id_for_label }}" name="{{ user_detail_form.mobile_contact.html_name }}" value="{{ user_detail_form.mobile_contact.value }}" placeholder="Fill Mobile" required>
+                        </div>
+                    </div>
+
+                    <!-- Render each field of the user_detail_form manually with custom class -->
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.age.id_for_label }}">Whatsapp No</label>
+                            {% comment %} {{ user_detail_form.whatsapp_no }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_detail_form.whatsapp_no.id_for_label }}" name="{{ user_detail_form.whatsapp_no.html_name }}" value="{{ user_detail_form.whatsapp_no.value }}" placeholder="Fill Whatsapp No">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.region.id_for_label }}">Place Location</label>
+                            {% comment %} {{ user_detail_form.place_location }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_detail_form.region.id_for_label }}" name="{{ user_detail_form.region.html_name }}" value="{{ user_detail_form.region.value }}" placeholder="Fill Region" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.facebook_account.id_for_label }}">Facebook Acc</label>
+                            {% comment %} {{ user_detail_form.facebook_account }} {% endcomment %}
+                            <input type="url" class="form-control" id="{{ user_detail_form.facebook_account.id_for_label }}" name="{{ user_detail_form.facebook_account.html_name }}" value="{{ user_detail_form.facebook_account.value }}" placeholder="Fill Facebook Link">
+                        </div>
+                        <!-- Continue for other fields as needed -->
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.instagram_account.id_for_label }}">Instagram Acc</label>
+                            {% comment %} {{ user_detail_form.whatsapp_no }} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_detail_form.instagram_account.id_for_label }}" name="{{ user_detail_form.instagram_account.html_name }}" value="{{ user_detail_form.instagram_account.value }}" placeholder="Fill Instagram Acc">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.youtube_account.id_for_label }}">Youtube Acc</label>
+                            {% comment %} {{ user_detail_form.youtube_account }} {% endcomment %}
+                            <input type="url" class="form-control" id="{{ user_detail_form.youtube_account.id_for_label }}" name="{{ user_detail_form.youtube_account.html_name }}" value="{{ user_detail_form.youtube_account.value }}" placeholder="Fill Youtube Acc">
+                        </div>
+                        <div class="form-group col-md-3">
+                        <label for="{{ user_detail_form.twitter_account.id_for_label }}">Twitter Acc</label>
+                        {% comment %} {{ user_detail_form.twitter_account}} {% endcomment %}
+                        <input type="text" class="form-control" id="{{ user_detail_form.twitter_account.id_for_label }}" name="{{ user_detail_form.twitter_account.html_name }}" value="{{ user_detail_form.twitter_account.value }}" placeholder="Fill Twitter Acc" >
+                    </div>
+                        <!-- Continue for other fields as needed -->
+                    </div>
+
+                <div class="form-row">
+                <div class="form-group col-md-3">
+                            <label for="{{ user_detail_form.tiktok_account.id_for_label }}">Website Url</label>
+                            {% comment %} {{ user_detail_form.tiktok_account}} {% endcomment %}
+                            <input type="text" class="form-control" id="{{ user_detail_form.website_link.id_for_label }}" name="{{ user_detail_form.website_link.html_name }}" value="{{ user_detail_form.website_link.value }}" placeholder="Fill Website Link" >
+                        </div>
+                    <div class="form-group col-md-3">
+                        <label for="{{ user_detail_form.profile_image.id_for_label }}">Profile Image</label>
+                        {% comment %} {{ user_detail_form.profile_image }} {% endcomment %}
+                        <input type="file" class="form-control" id="{{ user_detail_form.profile_image.id_for_label }}" name="{{ user_detail_form.profile_image.html_name }}" value="{{ user_detail_form.profile_image.value }}" placeholder="Fill Profile">
+                    </div>
+                    <!-- Continue for other fields as needed -->
+                </div>
+
+                    <button type="submit" class="btn btn-sm btn-light bg-secondary text-white">Update Details</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    // Show/hide password functionality
+    document.querySelector('.toggle-password').addEventListener('click', function () {
+        const input = this.previousElementSibling;
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+        this.innerHTML = type === 'password' ? '<i class="bi bi-eye-fill"></i>' : '<i class="bi bi-eye-slash-fill"></i>';
+    });
+  
+    // Password strength checker
+    const passwordInput = document.getElementById('id_password');
+    const passwordStrength = document.getElementById('password-strength');
+  
+    passwordInput.addEventListener('input', function () {
+        checkPasswordStrength(passwordInput.value, passwordStrength);
+    });
+  
+    function checkPasswordStrength(password, strengthMeter) {
+        let strength = 0;
+  
+        if (password.length > 7) strength += 1;
+        if (/[A-Z]/.test(password)) strength += 1;
+        if (/[0-9]/.test(password)) strength += 1;
+        if (/[@$!%*?&]/.test(password)) strength += 1;
+  
+        updateStrengthMeter(strength, strengthMeter);
+    }
+  
+    function updateStrengthMeter(strength, strengthMeter) {
+        strengthMeter.style.width = strength * 25 + '%';
+  
+        if (strength === 0) {
+            strengthMeter.className = 'strength-meter-fill';
+        } else if (strength === 1) {
+            strengthMeter.className = 'strength-meter-fill weak';
+        } else if (strength === 2) {
+            strengthMeter.className = 'strength-meter-fill medium';
+        } else if (strength > 2) {
+            strengthMeter.className = 'strength-meter-fill strong';
+        }
+    }
+  </script>
+
+{% endblock %}
