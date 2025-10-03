@@ -611,7 +611,7 @@
     </div>
   </div>
 
-
+{% if aboutdetail %}
   <div class="row">
     <div class="col-sm">
       <h5 class="text-light mt-3">CONTACT US</h5>
@@ -625,8 +625,8 @@
         <i class="bi bi-phone"></i> {{aboutdetail.mobile_contact}}<br>
         <i class="bi bi-envelope"></i> {{aboutdetail.address}}<br>
         <i class="bi bi-geo-alt"></i> {{aboutdetail.region}}<br>
-        <i class="bi bi-envelope"></i> {{aboutdetail.email}}
-        <a class="bi bi-link" style="cursor:pointer; font-size:25;" href="{{aboutdetail.website_link}}">{{aboutdetail.website_link}}</a>
+        <i class="bi bi-envelope"></i> {{aboutdetail.email}} <br>
+        <a class="bi bi-link" style="cursor:pointer; font-size:30;" href="{{aboutdetail.website_link}}">{{aboutdetail.website_link}}</a>
         {% comment %} {% endfor %} {% endcomment %}
       </p>
     </div>
@@ -640,6 +640,9 @@
         <a data-bs-toggle="tooltip" title="{{aboutdetail.twitter_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-twitter text-light" style="font-size:1.8rem"></i></a>
       </div>
     </div>
+	  {% endif %}
+	  
+	  
   </div>
   </section>
   <!-- End Footer Info -->
