@@ -36,7 +36,7 @@ def home(request):
         
     aboutdetails = UserDetail.objects.order_by("company_rank").first()
     userdetails= UserDetail.objects.order_by("company_rank").first()
-    partners= PartnerForm.order_by("full_name").first()
+    partners= PartnerForm.order_by("partner_rank").first()
     clients= ClientForm.objects.all()
     certificates= CertificateForm.objects.all()
     context = {
