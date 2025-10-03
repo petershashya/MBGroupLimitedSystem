@@ -608,34 +608,30 @@
   </div>
 
 
+{% if aboutdetail %}
   <div class="row">
     <div class="col-sm">
-      {% comment %} <h5 class="text-light mt-3">CONTACT US</h5> {% endcomment %}
+      <h5 class="text-light mt-3">CONTACT US</h5>
       <p class="text-light">
-        {% comment %} <i class="bi bi-phone"></i> +225 715455649 | +225 675788670<br>
-        <i class="bi bi-envelope"></i> P.O.BOX 33951<br>
-        <i class="bi bi-geo-alt"></i> Dar-es-Salaam, Tanzania<br>
-        <i class="bi bi-envelope"></i> info@rems-africa.com | rems.africaconsultancy@gmail.com
-        <a style="cursor:pointer;" href="https://www.rems.africa.com">https://www.rems.africa.com</a> {% endcomment %}
-        {% comment %} {% for userdetail in userdetails %} {% endcomment %}
-        {% comment %} <i class="bi bi-phone"></i> {{userdetail.mobile_contact}}<br>
-        <i class="bi bi-envelope"></i> {{userdetail.address}}<br>
-        <i class="bi bi-geo-alt"></i> {{userdetail.region}}<br>
-        <i class="bi bi-envelope"></i> {{userdetail.email}}
-        <a class="bi bi-link" style="cursor:pointer; font-size:25;" href="{{userdetail.website_link}}">{{userdetail.website_link}}</a> {% endcomment %}
-        {% comment %} {% endfor %} {% endcomment %}
+        <i class="bi bi-phone"></i> {{aboutdetail.mobile_contact}}<br>
+        <i class="bi bi-envelope"></i> {{aboutdetail.address}}<br>
+        <i class="bi bi-geo-alt"></i> {{aboutdetail.region}}<br>
+        <i class="bi bi-envelope"></i> {{aboutdetail.email}} <br>
+        <a class="bi bi-link" style="cursor:pointer; font-size:30;" href="{{aboutdetail.website_link}}">{{aboutdetail.website_link}}</a>
       </p>
     </div>
 
         <div class="col-sm-3 mt-2">
-      {% comment %} <h5 class="text-light text-center mb-3">SOCIAL MEDIA</h5>
+      <h5 class="text-light text-center mb-3">SOCIAL MEDIA</h5>
       <div class="d-flex justify-content-center align-items-center gap-3">
-        <a data-bs-toggle="tooltip" title="{{userdetail.instagram_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-instagram text-light" style="font-size:1.8rem"></i></a>
-        <a data-bs-toggle="tooltip" title="{{userdetail.youtube_account}}" href="{{userdetail.youtube_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-youtube text-light" style="font-size:2.5rem"></i></a>
-        <a data-bs-toggle="tooltip" title="{{userdetail.facebook_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-facebook text-light" style="font-size:1.8rem"></i></a>
-        <a data-bs-toggle="tooltip" title="{{userdetail.twitter_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-twitter text-light" style="font-size:1.8rem"></i></a>
-      </div> {% endcomment %}
-  </div>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.instagram_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-instagram text-light" style="font-size:1.8rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.youtube_account}}" href="{{userdetail.youtube_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-youtube text-light" style="font-size:2.5rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.facebook_account}}"  class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-facebook text-light" style="font-size:1.8rem"></i></a>
+        <a data-bs-toggle="tooltip" title="{{aboutdetail.twitter_account}}" class="text-decoration-none" style="cursor:pointer;"><i class="bi bi-twitter text-light" style="font-size:1.8rem"></i></a>
+      </div>
+    </div>
+	  {% endif %}
+	  
   </section>
   <!-- End Footer Info -->
 
