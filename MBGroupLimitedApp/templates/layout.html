@@ -616,18 +616,11 @@
     <div class="col-sm">
       <h5 class="text-light mt-3">CONTACT US</h5>
       <p class="text-light">
-        {% comment %} <i class="bi bi-phone"></i> +225 715455649 | +225 675788670<br>
-        <i class="bi bi-envelope"></i> P.O.BOX 33951<br>
-        <i class="bi bi-geo-alt"></i> Dar-es-Salaam, Tanzania<br>
-        <i class="bi bi-envelope"></i> info@rems-africa.com | rems.africaconsultancy@gmail.com
-        <a style="cursor:pointer;" href="https://www.rems.africa.com">https://www.rems.africa.com</a> {% endcomment %}
-        {% comment %} {% for userdetail in userdetails %} {% endcomment %}
         <i class="bi bi-phone"></i> {{aboutdetail.mobile_contact}}<br>
         <i class="bi bi-envelope"></i> {{aboutdetail.address}}<br>
         <i class="bi bi-geo-alt"></i> {{aboutdetail.region}}<br>
         <i class="bi bi-envelope"></i> {{aboutdetail.email}} <br>
         <a class="bi bi-link" style="cursor:pointer; font-size:30;" href="{{aboutdetail.website_link}}">{{aboutdetail.website_link}}</a>
-        {% comment %} {% endfor %} {% endcomment %}
       </p>
     </div>
 
