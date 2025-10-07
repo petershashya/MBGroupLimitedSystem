@@ -130,8 +130,8 @@
     </div>
 </div>
             <span class="d-flex justify-content-center align-items-center gap-1">
-        <a id="add_list" class="px-3 py-2  text-light  text-decoration-none edit-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(5, 45, 63, 1);"><i class="bi bi-pencil mx-1 text-bold text-light" style=" font-size:12px;"></i>Edit </a>
-        <a id="add_list" class="px-3 py-2 text-light  text-decoration-none delete-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(97, 22, 9, 1);"><i class="bi bi-trash mx-1 text-bold text-light" style=" font-size:12px;"></i>Delete </a> 
+         {% comment %}<a id="add_list" class="px-3 py-2  text-light  text-decoration-none edit-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(5, 45, 63, 1);"><i class="bi bi-pencil mx-1 text-bold text-light" style=" font-size:12px;"></i>Edit </a>
+        <a id="add_list" class="px-3 py-2 text-light  text-decoration-none delete-superuser-btn" data-id="{{ user.id }}" style="background-color:rgba(97, 22, 9, 1);"><i class="bi bi-trash mx-1 text-bold text-light" style=" font-size:12px;"></i>Delete </a>  {% endcomment %}
          <a id="add_list"class="px-3 py-2   text-light text-decoration-none" style="background-color:rgba(5, 45, 63, 1);"><i class="bi bi-eye-fill mx-1 text-bold text-light" style=" font-size:15px;"></i>{{homepage_logs}} viewers </a>
             </span>
 
@@ -172,7 +172,7 @@
 <!-- starting listing BM Admins -->
  
 <!-- first division for showing users list -->
- {% comment %} <div class="mb-4 mt-2 d-flex justify-content-center  align-items-center">
+ <div class="mb-4 mt-2 d-flex justify-content-center  align-items-center">
 <div class="shadow  container bg-white p-3 "
      style=" border-radius:20px;">
 
@@ -253,7 +253,6 @@
   });
 </script>
  <!-- endlisting BM admins -->
-{% endcomment %}
 
 
 <!-- start listing partners -->
