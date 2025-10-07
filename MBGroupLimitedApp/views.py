@@ -420,105 +420,42 @@ def admin_user_delete(request, user_id):
     
     
     
-   #edit and delete admins
+# start edit and delete admins
    
-# def is_superuser(user):
-#     return user.is_superuser
-
-# @login_required
-# @user_passes_test(is_superuser)
-# def admin_superuser_edit(request, user_id):
-#     user = get_object_or_404(User, id=user_id)
-#     userdetail = get_object_or_404(UserDetail, id=user_id)
-
-#     if request.method == 'POST':
-#         form = SuperUserRegistrationForm(request.POST, request.FILES, instance=user)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Admin details updated successfully.")
-#             return redirect(reverse('account'))  # go back to account page
-#     else:
-#         form = SuperUserRegistrationForm(instance=user)
-
-#     context = {
-#         'superuser_obj': user,
-#         'superuserdetail':userdetail,
-#         'admin_form': form
-#     }
-#     return render(request, 'edit_superuser.html', context)
-
-# @login_required
-# @user_passes_test(is_superuser)
-# def admin_superuser_delete(request, user_id):
-#     user = get_object_or_404(User, id=user_id)
-
-#     if request.method == 'POST':
-#         user.delete()
-#         messages.success(request, "Admin deleted successfully.")
-#         return redirect(reverse('account'))  # go back to account page
-
-#     return render(request, 'delete_superuser.html', {'superuser_obj': user}) 
-
-
-# --- Check function to restrict access to superusers ---
 def is_superuser(user):
     return user.is_superuser
 
-# --- Edit Super User ---
 @login_required
 @user_passes_test(is_superuser)
 def admin_superuser_edit(request, user_id):
     user = get_object_or_404(User, id=user_id)
-    form = SuperUserRegistrationForm(request.POST or None, request.FILES or None, instance=user)
+    userdetail = get_object_or_404(UserDetail, id=user_id)
 
-    # Load existing details into form initial values
-    if request.method == 'GET':
-        try:
-            user_detail = UserDetail.objects.get(user=user)
-            form.initial.update({
-                'mobile_contact': user_detail.mobile_contact,
-                'email': user_detail.email,
-                'gender': user_detail.gender,
-                'age': user_detail.age,
-                'region': user_detail.region,
-                'address': user_detail.address,
-                'company_rank': user_detail.company_rank,
-                'facebook_account': user_detail.facebook_account,
-                'instagram_account': user_detail.instagram_account,
-                'twitter_account': user_detail.twitter_account,
-                'youtube_account': user_detail.youtube_account,
-                'website_link': user_detail.website_link,
-                'profile_image': user_detail.profile_image,
-            })
-        except UserDetail.DoesNotExist:
-            pass
-
-    # --- When form is submitted ---
     if request.method == 'POST':
-        if 'save' in request.POST:
-            if form.is_valid():
-                form.save()
-                messages.success(request, "Super user updated successfully.")
-                return redirect(reverse('account'))  # go back to account page
-            else:
-                messages.error(request, "Please correct the errors below.")
-        elif 'delete' in request.POST:
-            form.delete_user()
-            messages.success(request, "Super user deleted successfully.")
-            return redirect(reverse('account'))
+        form = SuperUserRegistrationForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Admin details updated successfully.")
+            return redirect(reverse('account'))  # go back to account page
+    else:
+        form = SuperUserRegistrationForm(instance=user)
 
-    return render(request, 'edit_user.html', {'admin_form': form, 'user_obj': user})
+    context = {
+        'superuser_obj': user,
+        'superuserdetail':userdetail,
+        'admin_form': form
+    }
+    return render(request, 'edit_superuser.html', context)
 
-# --- Delete Super User (separate view if using confirmation page) ---
 @login_required
 @user_passes_test(is_superuser)
 def admin_superuser_delete(request, user_id):
     user = get_object_or_404(User, id=user_id)
 
     if request.method == 'POST':
-        form = SuperUserRegistrationForm(instance=user)
-        form.delete_user()
-        messages.success(request, "User deleted successfully.")
-        return redirect(reverse('account'))
+        user.delete()
+        messages.success(request, "Admin deleted successfully.")
+        return redirect(reverse('account'))  # go back to account page
 
-    return render(request, 'delete_user.html', {'user_obj': user})
+    return render(request, 'delete_superuser.html', {'superuser_obj': user}) 
+
