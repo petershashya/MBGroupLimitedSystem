@@ -467,7 +467,7 @@ def is_superuser(user):
 # --- Edit Super User ---
 @login_required
 @user_passes_test(is_superuser)
-def admin_user_edit(request, user_id):
+def admin_superuser_edit(request, user_id):
     user = get_object_or_404(User, id=user_id)
     form = SuperUserRegistrationForm(request.POST or None, request.FILES or None, instance=user)
 
@@ -512,7 +512,7 @@ def admin_user_edit(request, user_id):
 # --- Delete Super User (separate view if using confirmation page) ---
 @login_required
 @user_passes_test(is_superuser)
-def admin_user_delete(request, user_id):
+def admin_superuser_delete(request, user_id):
     user = get_object_or_404(User, id=user_id)
 
     if request.method == 'POST':
