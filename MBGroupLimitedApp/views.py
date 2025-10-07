@@ -507,7 +507,7 @@ def admin_superuser_edit(request, user_id):
             messages.success(request, "Super user deleted successfully.")
             return redirect(reverse('account'))
 
-    return render(request, 'edit_user.html', {'form': form, 'user_obj': user})
+    return render(request, 'edit_user.html', {'admin_form': form, 'user_obj': user})
 
 # --- Delete Super User (separate view if using confirmation page) ---
 @login_required
