@@ -2,25 +2,21 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import UserDetail, PartnerForm, ClientForm, CertificateForm
 
-# Choice constants (must match the models)
 GENDER_CHOICES = [
     ('M', 'Male'),
     ('F', 'Female')
 ]
-
 COMPANY_RANK_CHOICES = [
     ('director', 'Director'),
 ]
-
 CLIENT_COMPANY_CHOICES = [
-        ('LMT', 'LIMITED'),
-        ('INV', 'INVESTMENT'),
-        ('COMP', 'COMPANY'),
+    ('LMT', 'LIMITED'),
+    ('INV', 'INVESTMENT'),
+    ('COMP', 'COMPANY'),
 ]
 
-# ---------------- SuperUser Registration Form ----------------
 class SuperUserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput(), required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=False)
     mobile_contact = forms.CharField(max_length=15, required=True, label='Mobile Number')
     email = forms.EmailField(required=False, label='Email Address')
     gender = forms.ChoiceField(choices=GENDER_CHOICES, required=True)
@@ -41,15 +37,13 @@ class SuperUserRegistrationForm(forms.ModelForm):
 
     def clean_mobile_contact(self):
         mobile_contact = self.cleaned_data.get('mobile_contact')
-        if UserDetail.objects.filter(mobile_contact=mobile_contact).exists():
+        if self.instance and self.instance.pk:
+            existing = UserDetail.objects.filter(mobile_contact=mobile_contact).exclude(user=self.instance)
+        else:
+            existing = UserDetail.objects.filter(mobile_contact=mobile_contact)
+        if existing.exists():
             raise forms.ValidationError("This mobile number is already registered.")
         return mobile_contact
-    
-    def clean_company_rank(self):
-        company_rank = self.cleaned_data.get('company_rank')
-        if UserDetail.objects.filter(company_rank=company_rank).exists():
-            raise forms.ValidationError("A Company Rank already registered.")
-        return company_rank
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -57,23 +51,102 @@ class SuperUserRegistrationForm(forms.ModelForm):
             user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
-            UserDetail.objects.create(
-                user=user,
-                profile_image=self.cleaned_data.get('profile_image'),
-                mobile_contact=self.cleaned_data['mobile_contact'],
-                email=self.cleaned_data.get('email'),
-                gender=self.cleaned_data.get('gender'),
-                age=self.cleaned_data.get('age'),
-                region=self.cleaned_data['region'],
-                address=self.cleaned_data.get('address'),
-                company_rank=self.cleaned_data.get('company_rank'),
-                facebook_account = self.cleaned_data.get('facebook_account'),
-                instagram_account = self.cleaned_data.get('instagram_account'),
-                twitter_account = self.cleaned_data.get('twitter_account'),
-                youtube_account = self.cleaned_data.get('youtube_account'),
-                website_link = self.cleaned_data.get('website_link'),
-            )
+            defaults = {
+                'profile_image': self.cleaned_data.get('profile_image', ''),
+                'mobile_contact': self.cleaned_data['mobile_contact'],
+                'email': self.cleaned_data.get('email', ''),
+                'gender': self.cleaned_data.get('gender', ''),
+                'age': self.cleaned_data.get('age', ''),
+                'region': self.cleaned_data['region'],
+                'address': self.cleaned_data.get('address', ''),
+                'company_rank': self.cleaned_data.get('company_rank', ''),
+                'facebook_account': self.cleaned_data.get('facebook_account', ''),
+                'instagram_account': self.cleaned_data.get('instagram_account', ''),
+                'twitter_account': self.cleaned_data.get('twitter_account', ''),
+                'youtube_account': self.cleaned_data.get('youtube_account', ''),
+                'website_link': self.cleaned_data.get('website_link', '')
+            }
+            UserDetail.objects.update_or_create(user=user, defaults=defaults)
         return user
+
+    def delete_user(self):
+        if self.instance and self.instance.pk:
+            UserDetail.objects.filter(user=self.instance).delete()
+            self.instance.delete()
+
+
+# # Choice constants (must match the models)
+# GENDER_CHOICES = [
+#     ('M', 'Male'),
+#     ('F', 'Female')
+# ]
+
+# COMPANY_RANK_CHOICES = [
+#     ('director', 'Director'),
+# ]
+
+# CLIENT_COMPANY_CHOICES = [
+#         ('LMT', 'LIMITED'),
+#         ('INV', 'INVESTMENT'),
+#         ('COMP', 'COMPANY'),
+# ]
+
+# # ---------------- SuperUser Registration Form ----------------
+# class SuperUserRegistrationForm(forms.ModelForm):
+#     password = forms.CharField(widget=forms.PasswordInput(), required=True)
+#     mobile_contact = forms.CharField(max_length=15, required=True, label='Mobile Number')
+#     email = forms.EmailField(required=False, label='Email Address')
+#     gender = forms.ChoiceField(choices=GENDER_CHOICES, required=True)
+#     age = forms.IntegerField(required=True, min_value=1)
+#     region = forms.CharField(max_length=100, required=True)
+#     address = forms.CharField(max_length=100, required=True, label="Address")
+#     company_rank = forms.ChoiceField(choices=COMPANY_RANK_CHOICES, required=False)
+#     facebook_account = forms.CharField(max_length=100, required=True)
+#     instagram_account = forms.CharField(max_length=100, required=True)
+#     twitter_account = forms.CharField(max_length=100, required=True)
+#     youtube_account = forms.URLField(required=True)
+#     website_link = forms.CharField(required=True)
+#     profile_image = forms.ImageField(required=False, widget=forms.ClearableFileInput(attrs={'accept': 'image/*'}))
+
+#     class Meta:
+#         model = User
+#         fields = ['username', 'password', 'first_name', 'last_name']
+
+#     def clean_mobile_contact(self):
+#         mobile_contact = self.cleaned_data.get('mobile_contact')
+#         if UserDetail.objects.filter(mobile_contact=mobile_contact).exists():
+#             raise forms.ValidationError("This mobile number is already registered.")
+#         return mobile_contact
+    
+#     def clean_company_rank(self):
+#         company_rank = self.cleaned_data.get('company_rank')
+#         if UserDetail.objects.filter(company_rank=company_rank).exists():
+#             raise forms.ValidationError("A Company Rank already registered.")
+#         return company_rank
+
+#     def save(self, commit=True):
+#         user = super().save(commit=False)
+#         if self.cleaned_data.get("password"):
+#             user.set_password(self.cleaned_data["password"])
+#         if commit:
+#             user.save()
+#             UserDetail.objects.create(
+#                 user=user,
+#                 profile_image=self.cleaned_data.get('profile_image'),
+#                 mobile_contact=self.cleaned_data['mobile_contact'],
+#                 email=self.cleaned_data.get('email'),
+#                 gender=self.cleaned_data.get('gender'),
+#                 age=self.cleaned_data.get('age'),
+#                 region=self.cleaned_data['region'],
+#                 address=self.cleaned_data.get('address'),
+#                 company_rank=self.cleaned_data.get('company_rank'),
+#                 facebook_account = self.cleaned_data.get('facebook_account'),
+#                 instagram_account = self.cleaned_data.get('instagram_account'),
+#                 twitter_account = self.cleaned_data.get('twitter_account'),
+#                 youtube_account = self.cleaned_data.get('youtube_account'),
+#                 website_link = self.cleaned_data.get('website_link'),
+#             )
+#         return user
     
 # # forms.py
 # class SuperUserEditForm(forms.ModelForm):
