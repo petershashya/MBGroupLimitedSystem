@@ -542,7 +542,7 @@
 
 
 
-
+{% comment %}
 <!-- start listing partners -->
   <div class="animation_division " id="scrollDiv5" >
 <div class="about_us">
@@ -603,6 +603,81 @@
   </button>
 </div>
 
+  </div>
+</div>
+<!-- end listing partners -->
+
+      {% endcomment %}
+
+      <!-- start listing partners -->
+<div class="animation_division" id="scrollDiv5">
+  <div class="about_us">
+    {% if partners %}
+    <!-- Carousel -->
+    <div id="partnerCarousel" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        {% for partner in partners %}
+          <button type="button"
+                  data-bs-target="#partnerCarousel"
+                  data-bs-slide-to="{{ forloop.counter0 }}"
+                  class="{% if forloop.first %}active{% endif %}">
+          </button>
+        {% endfor %}
+      </div>
+
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        {% for partner in partners %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="mt-4 rounded p-5 mx-2 mb-1 text-center">
+            <span class="d-flex justify-content-center align-items-center mb-2"
+                  style="color:rgba(9,53,71,1); font-size:1.5rem;">
+              OUR PARTNERS
+            </span>
+
+            <i class="bi bi-quote mx-1" style="font-size:1.5rem; color:rgba(9,53,71,1);"></i>
+            <span>{{ partner.description }}</span>
+            <i class="bi bi-quote mx-1" style="font-size:1.5rem; color:rgba(9,53,71,1);"></i>
+
+            {% if partner.profile_image %}
+            <div class="d-flex justify-content-center align-items-center my-3">
+              <img src="{{ partner.profile_image.url }}"
+                   class="rounded-circle shadow-sm"
+                   style="width:90px; height:90px; object-fit:cover;"
+                   alt="{{ partner.full_name }}">
+            </div>
+            {% endif %}
+
+            <span class="d-block fw-bold" style="color:rgba(9,53,71,1);">
+              {{ partner.full_name }}
+            </span>
+            <span class="d-block" style="color:rgba(9,53,71,1);">
+              {{ partner.partner_rank }}
+            </span>
+            <span class="d-block mb-2" style="color:rgba(9,53,71,1);">
+              Located at <b>{{ partner.region }}</b>
+            </span>
+
+            <hr class="p-1" style="color:rgba(9,53,71,1);">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Left and right controls/icons -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#partnerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#partnerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+    {% else %}
+      <p class="text-center mt-4 text-muted">No partners available yet.</p>
+    {% endif %}
   </div>
 </div>
 <!-- end listing partners -->
